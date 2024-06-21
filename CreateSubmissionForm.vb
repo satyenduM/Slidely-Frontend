@@ -10,6 +10,10 @@ Public Class CreateSubmissionForm
     Private stopwatchRunning As Boolean
     Private updateTimer As Timer
 
+    Private Sub CreateSubmissionForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        KeyPreview = True
+    End Sub
+
     Public Sub New(Optional submissionToEdit As SubmissionDetails = Nothing)
         InitializeComponent()
         stopwatch = New Stopwatch()
@@ -82,6 +86,14 @@ Public Class CreateSubmissionForm
     Private Sub UpdateStopwatchTime(sender As Object, e As EventArgs)
         If stopwatchRunning Then
             txtStopwatchTime.Text = stopwatch.Elapsed.ToString("hh\:mm\:ss")
+        End If
+    End Sub
+
+    Private Sub CreateSubmissionForm_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If e.Control AndAlso e.KeyCode = Keys.T Then
+            btnToggleStopwatch.PerformClick()
+        ElseIf e.Control AndAlso e.KeyCode = Keys.S Then
+            btnSubmit.PerformClick()
         End If
     End Sub
 End Class

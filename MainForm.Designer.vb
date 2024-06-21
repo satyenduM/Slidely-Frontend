@@ -62,6 +62,7 @@ Partial Class MainForm
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnCreateSubmission)
         Me.Controls.Add(Me.btnViewSubmissions)
+        Me.KeyPreview = True
         Me.Name = "MainForm"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
